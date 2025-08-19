@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Late Lights</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #020202, #0a0f1f, #101b2b);
+      color: #f2f2f2;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    header {
+      padding: 40px 20px 10px;
+    }
+.album-cover {
+  width: 90%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0px 8px 35px rgba(0,0,0,0.8), 
+              0px 0px 15px rgba(0, 153, 255, 0.5);
+  margin-bottom: 25px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.album-cover:hover {
+  transform: scale(1.05); /* zoom in slightly */
+  box-shadow: 0px 12px 45px rgba(0,0,0,0.9), 
+              0px 0px 25px rgba(0, 153, 255, 0.8);
+  cursor: pointer;
+}
+
+    h1 {
+      font-size: 2.8rem;
+      margin: 10px 0;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 2px;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-weight: 500;
+      font-size: 1.2rem;
+      color: #aaa;
+      margin: 8px 0;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #777;
+    }
+
+    .player-container {
+      margin: 30px auto;
+      width: 90%;
+      max-width: 420px;
+      background: rgba(255,255,255,0.03);
+      padding: 25px;
+      border-radius: 18px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0px 4px 25px rgba(0,0,0,0.6);
+    }
+
+    .player-container h2 {
+      color: #4facfe;
+      margin-bottom: 15px;
+    }
+
+    audio {
+      width: 100%;
+      outline: none;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: #111;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 5px 20px rgba(0,153,255,0.4);
+      transition: 0.3s ease;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 7px 25px rgba(0,153,255,0.6);
+    }
+
+    footer {
+      padding: 20px;
+      font-size: 0.85rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+        <h1>LATE LIGHTS</h1>
+    <h2>By Bryan</h2>
+    <p>Released: August 2025</p>
+    <img src="ChatGPT Image Aug 17, 2025, 04_40_15 AM.png" alt="Album Cover" class="album-cover">
+  </header>
+
+  <section class="player-container">
+    <h2>🎧 Listen Now</h2>
+    <audio controls>
+      <source src="montagem-coma-made-with-Voicemod.mp3" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio>
+    <br>
+    <a href="montagem-coma-made-with-Voicemod.mp3" download class="download-btn">⬇️ Download Song</a>
+  </section>
+
+  <footer>
+    ⚠️ Parental Advisory – Explicit Content <br/>
+    © 2025 Bryan. All Rights Reserved.
+  </footer>
+  <footer><a href="about.html">About</a></footer>
+</body>
+</html>
+
