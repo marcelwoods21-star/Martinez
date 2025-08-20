@@ -4,205 +4,173 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ZENONSN - Bryan</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom, #020202, #0a0f1f, #101b2b);
-      color: #f2f2f2;
-      text-align: center;
+      background: radial-gradient(circle at top, #0f2027, #0a0f1f, #000000);
+      color: #fff;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow-x: hidden;
     }
 
     header {
-      padding: 40px 20px 20px;
-    }
-
-    .album-cover {
-      width: 90%;
-      max-width: 420px;
-      height: auto;
-      border-radius: 20px;
-      object-fit: cover;
-      box-shadow: 0px 8px 35px rgba(0,0,0,0.8), 
-                  0px 0px 15px rgba(0, 153, 255, 0.5);
-      margin: 25px auto;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .album-cover:hover {
-      transform: scale(1.05);
-      box-shadow: 0px 12px 45px rgba(0,0,0,0.9), 
-                  0px 0px 25px rgba(0, 153, 255, 0.8);
-      cursor: pointer;
+      padding: 50px 20px 30px;
     }
 
     h1 {
-      font-size: 3rem;
-      margin: 10px 0;
-      font-family: 'Playfair Display', serif;
-      background: linear-gradient(to right, #4facfe, #00f2fe);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.2rem;
+      background: linear-gradient(to right, #00f2fe, #4facfe);
       -webkit-background-clip: text;
-      background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
+      margin: 0;
     }
 
     h2 {
-      font-weight: 500;
-      font-size: 1.3rem;
-      color: #aaa;
-      margin: 8px 0 20px;
+      font-weight: 400;
+      color: #bbb;
+      margin: 10px 0 25px;
+      font-size: 1.2rem;
     }
 
-    /* Tracklist Section */
+    /* Album Cover */
+    .album-cover {
+      width: 280px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 200, 255, 0.5);
+      transition: 0.3s ease;
+    }
+    .album-cover:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px rgba(0, 200, 255, 0.9);
+    }
+
+    /* Tracklist Glass Card */
     .tracklist {
+      margin: 40px 0;
       width: 90%;
-      max-width: 600px;
-      margin: 0 auto 40px;
-      background: rgba(255,255,255,0.03);
+      max-width: 650px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(0,200,255,0.4);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
       padding: 25px;
-      border-radius: 18px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0px 4px 25px rgba(0,0,0,0.6);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
       text-align: left;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(40px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
     .track {
-      margin-bottom: 30px;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
       border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding-bottom: 20px;
     }
 
     .track h3 {
-      font-size: 1.1rem;
-      color: #4facfe;
+      color: #00f2fe;
+      font-size: 1rem;
       margin-bottom: 8px;
+      text-transform: uppercase;
     }
 
     audio {
       width: 100%;
-      outline: none;
-      margin-bottom: 10px;
+      border-radius: 8px;
     }
 
+    /* Download Button */
     .download-btn {
       display: inline-block;
-      margin-top: 5px;
-      padding: 8px 18px;
-      background: linear-gradient(to right, #4facfe, #00f2fe);
-      color: #111;
-      font-size: 0.9rem;
-      font-weight: bold;
-      border-radius: 20px;
+      margin-top: 8px;
+      padding: 8px 20px;
+      background: linear-gradient(90deg, #00f2fe, #4facfe);
+      color: #000;
+      border-radius: 25px;
+      font-weight: 600;
       text-decoration: none;
-      box-shadow: 0 5px 20px rgba(0,153,255,0.4);
       transition: 0.3s ease;
+      box-shadow: 0 0 15px rgba(0,200,255,0.4);
     }
-
     .download-btn:hover {
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 7px 25px rgba(0,153,255,0.6);
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0,200,255,0.8);
     }
 
     /* Streaming Links */
     .stream-links {
-      margin: 30px 0;
+      margin: 35px 0;
     }
-
     .stream-links a {
       display: inline-block;
       margin: 10px;
-      padding: 10px 25px;
-      border-radius: 30px;
+      padding: 12px 25px;
+      border-radius: 40px;
       font-weight: 600;
       text-decoration: none;
       transition: 0.3s;
-      font-size: 0.95rem;
     }
-
-    .spotify {
-      background: #1DB954;
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(29,185,84,0.5);
-    }
-
-    .spotify:hover {
-      background: #1ed760;
-    }
-
-    .apple {
-      background: #000;
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(255,255,255,0.3);
-    }
-
-    .apple:hover {
-      background: #222;
-    }
-
-    .youtube {
-      background: #FF0000;
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(255,0,0,0.5);
-    }
-
-    .youtube:hover {
-      background: #ff3333;
-    }
+    .spotify { background: #1DB954; color: #fff; }
+    .apple { background: #000; color: #fff; border: 1px solid #fff; }
+    .youtube { background: #FF0000; color: #fff; }
+    .stream-links a:hover { transform: scale(1.07); }
 
     footer {
       padding: 20px;
       font-size: 0.85rem;
-      color: #555;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: auto;
+      color: #666;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>YT SOUND PAGE</h1>
-    <h2>By ZENONSN• Released: August 2025</h2>
+    <h2>By ZENONSN • Released: August 2025</h2>
     <img src="ChatGPT Image Aug 17, 2025, 04_40_15 AM.png" alt="Album Cover" class="album-cover">
   </header>
 
   <section class="tracklist">
     <h2>🎶 Tracklist</h2>
-
     <div class="track">
-      <h3>1. MONTAGEM COMA</h3>
+      <h3>1. Montagem Coma</h3>
       <audio controls>
         <source src="montagem-coma-made-with-Voicemod.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
       </audio>
-      <a href="montagem-coma-made-with-Voicemod.mp3" download class="download-btn">⬇️ Download</a>
+      <a href="montagem-coma-made-with-Voicemod.mp3" download class="download-btn">⬇ Download</a>
     </div>
 
     <div class="track">
-      <h3>2. MONTAGEM XONADA</h3>
+      <h3>2. Montagem Xonada</h3>
       <audio controls>
         <source src="montagem-xonada-made-with-Voicemod.mp3" type="audio/mpeg">
       </audio>
-      <a href="montagem-xonada-made-with-Voicemod.mp3" download class="download-btn">⬇️ Download</a>
+      <a href="montagem-xonada-made-with-Voicemod.mp3" download class="download-btn">⬇ Download</a>
     </div>
 
     <div class="track">
-      <h3>MONTAGEM SUPERSONIC</h3>
+      <h3>3. Montagem Supersonic</h3>
       <audio controls>
-        <source src="montagem-supersonic-(slowed)---roblox-invincible-edit-made-with-Voicemod.mp3" type="audio/mpeg">
+        <source src="montagem-supersonic.mp3" type="audio/mpeg">
       </audio>
-      <a href="montagem-supersonic-(slowed)---roblox-invincible-edit-made-with-Voicemod.mp3" download class="download-btn">⬇️ Download</a>
+      <a href="montagem-supersonic.mp3" download class="download-btn">⬇ Download</a>
     </div>
   </section>
 
-  <!-- Streaming links -->
   <section class="stream-links">
-    <a href="https://open.spotify.com/" target="_blank" class="spotify">🎧 Listen on Spotify</a>
+    <a href="https://open.spotify.com/" target="_blank" class="spotify">🎧 Spotify</a>
     <a href="https://music.apple.com/" target="_blank" class="apple">🍎 Apple Music</a>
     <a href="https://youtube.com/" target="_blank" class="youtube">▶️ YouTube</a>
   </section>
